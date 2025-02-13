@@ -15,6 +15,8 @@ export class MyCard extends LitElement {
   constructor() {
     super();
     this.title = "My card";
+    this.image = "https://avatars.githubusercontent.com/u/170651362?s=200&v=4"
+    this.description = "Goodbye"
   }
 
   static get styles() {
@@ -22,16 +24,27 @@ export class MyCard extends LitElement {
       :host {
         display: block;
       }
+
+      h1 {
+        color:blue;
+      }
     `;
   }
 
   render() {
-    return html`<div>${this.title}</div>`;
+    return html`
+    <div>
+      <h1>${this.title}</h1>
+      <img src = "${this.image}" alt ="${this.title}" />
+      <p>${this.description}</p>
+    </div>`
   }
 
   static get properties() {
     return {
       title: { type: String },
+      image: { type: String },
+      description: { type: String },
     };
   }
 }
